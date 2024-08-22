@@ -1,0 +1,17 @@
+<<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MyAnimeList OAUTH2 Code</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h5 id="code"></h5>
+        <script>
+            const queryString = window.location.search;
+            const params = new URLSearchParams(queryString);
+
+            document.getElementById("code").innerText = queryString;
+        </script>
+    </body>
+</html>
