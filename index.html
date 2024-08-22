@@ -4,14 +4,20 @@
         <title>MyAnimeList OAUTH2 Code</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #code {
+                overflow-wrap: anywhere;
+            }
+        </style>
     </head>
     <body>
-        <h3 id="code"></h3>
+        <h3>Paste the following code in the Animu app:</h3>
+        <p id="code"></p>
         <script>
             const queryString = window.location.search;
             const params = new URLSearchParams(queryString);
 
-            document.getElementById("code").innerText = queryString;
+            document.getElementById("code").innerText = params.get('state') + params.get('code');
         </script>
     </body>
 </html>
