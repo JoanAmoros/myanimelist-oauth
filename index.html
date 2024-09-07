@@ -9,15 +9,21 @@
                 overflow-wrap: anywhere;
             }
         </style>
+        <script>
+            const queryString = window.location.search
+            const params = new URLSearchParams(queryString)
+            const state = params.get('state')
+            const code = params.get('code')
+
+            if (state !== null && code !== null) {
+                document.location = "animuapp:" + state + code 
+                window.open('','_self').close()
+            } else {
+                document.getElementById("text").innerText = "No code set"
+            }
+        </script>
     </head>
     <body>
-        <h3>Paste the following code in the Animu app:</h3>
-        <p id="code"></p>
-        <script>
-            const queryString = window.location.search;
-            const params = new URLSearchParams(queryString);
-
-            document.getElementById("code").innerText = params.get('state') + params.get('code');
-        </script>
+        <h3 id="text"></h3>
     </body>
 </html>
